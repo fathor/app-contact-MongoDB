@@ -1,0 +1,39 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Form Add Contact</h2>
+            <% if (typeof errors !=='undefined' ) { %>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(err=> { %>
+                            <li>
+                                <%= err.msg %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+                    <form action="/contact" method="POST">
+                        <div class="row mb-3">
+                            <label for="name" class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="noHP" class="col-sm-2 col-form-label">No HP</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="noHP" name="noHP">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+        </div>
+    </div>
+</div>

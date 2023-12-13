@@ -1,0 +1,44 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Form Update Contact</h2>
+            <% if (typeof errors !=='undefined' ) { %>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(err=> { %>
+                            <li>
+                                <%= err.msg %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+                    <form action="/contact?_method=PUT" method="POST">
+                        <input type="hidden" name="_id" value="<%= contact._id %>">
+                        <input type="hidden" name="oldName" value="<%= contact.oldNama || contact.name %>">
+                        <div class="row mb-3">
+                            <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name" required
+                                    value="<%= contact.name %>">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    value="<%= contact.email %>">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="noHP" class="col-sm-2 col-form-label">No HP</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="noHP" name="noHP"
+                                    value="<%= contact.noHP %>">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </form>
+        </div>
+    </div>
+</div>
